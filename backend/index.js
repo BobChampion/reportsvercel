@@ -53,7 +53,7 @@ app.get('/api/tests', (req, res) => {
 
 app.delete('/api/tests', (req, res) => {
   tests.length = 0;
-  res.send('Tests cleared');
+  res.send('Tests clearedd');
 });
 
 app.post('/api/tests/:campaignName', (req, res) => {
