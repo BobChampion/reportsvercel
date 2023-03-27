@@ -3,7 +3,7 @@ require('dotenv').config();
 
 let getStreams = async () => {
   try {
-    const response = await axios.get('https://api.adspect.net/v1/streams?page=5&per-page=100', {
+    const response = await axios.get('https://api.adspect.net/v1/streams', {
       headers: {
         Authorization: `Basic ${process.env.API_KEY_FOR_ADSPECT}`,
         'Content-Type': 'application/json',

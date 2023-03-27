@@ -39,7 +39,7 @@
             </tr>
           </tbody>
         </table>
-        <p v-show="lengthZero">No element less 30</p>
+        <p v-show="lengthZero">No clic</p>
       </div>
     </div>
   </div>
