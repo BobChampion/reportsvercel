@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const chromium = require('chrome-aws-lambda');
 
 let ports = require('../../files/port.json');
@@ -79,7 +79,7 @@ let doPuppetterTask = async (campaignName, campaigns, res) => {
       ],
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath,
-      headless: true,
+      headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
 
