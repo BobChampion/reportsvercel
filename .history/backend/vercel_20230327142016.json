@@ -9,7 +9,7 @@
         "build": "npm run build",
         "install": "apt-get update && apt-get install -y chromium-browser"
       }
-    },
+    }
     "builds": [
       { "src": "*js", "use": "@vercel/node" }
     ],
