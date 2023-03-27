@@ -29,7 +29,7 @@ export default {
   },
   async mounted() {
     await axios
-      .post(`/`)
+      .post(`https://reportsvercel-api.vercel.app/`)
       .then((response) => {
         console.log(response.data);
         this.tests = response.data;
@@ -38,7 +38,7 @@ export default {
         console.log(error);
       });
     await axios
-      .get('/api/tests')
+      .get('https://reportsvercel-api.vercel.app/api/tests')
       .then((response) => {
         this.tests = response.data;
       })
@@ -49,7 +49,7 @@ export default {
   methods: {
     async createTest() {
       await axios
-        .post(`/api/tests/${this.selectedCampaignName}`)
+        .post(`https://reportsvercel-api.vercel.app/api/tests/${this.selectedCampaignName}`)
         .then((response) => {
           this.tests = response.data;
         })
@@ -59,7 +59,7 @@ export default {
     },
     async deleteHistory() {
       await axios
-        .delete('/api/tests')
+        .delete('https://reportsvercel-api.vercel.app/api/tests')
         .then((response) => {
           this.tests = response.data;
         })

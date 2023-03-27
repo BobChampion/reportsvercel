@@ -25,7 +25,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get('/api/campaigns')
+      .get('https://reportsvercel-api.vercel.app/api/campaigns')
       .then((response) => {
         this.campaigns = response.data;
         console.log(this.campaigns);

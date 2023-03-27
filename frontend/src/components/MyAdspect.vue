@@ -64,7 +64,7 @@ export default {
   },
   async mounted() {
     await axios
-      .get('/api/streams')
+      .get('https://reportsvercel-api.vercel.app/api/streams')
       .then((response) => {
         this.streams = response.data;
         console.log(this.streams);
@@ -74,7 +74,7 @@ export default {
       });
 
     await axios
-      .get('/api/streamswithclick')
+      .get('https://reportsvercel-api.vercel.app/api/streamswithclick')
       .then((response) => {
         if (response) {
           this.haveData = true;

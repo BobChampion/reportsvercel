@@ -67,7 +67,7 @@ export default {
     this.isClick = false;
     this.haveData = false;
     await axios
-      .get(`/api/errors`, {
+      .get(`https://reportsvercel-api.vercel.app/api/errors`, {
         params: { from: getDate(this.startDateTime), to: getDate(this.endDateTime) },
       })
       .then((response) => {
