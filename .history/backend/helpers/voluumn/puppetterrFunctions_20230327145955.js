@@ -72,11 +72,14 @@ let doPuppetterTask = async (campaignName, campaigns, res) => {
       args: [
         ...chromium.args,
         '--hide-scrollbars',
+        '--disable-web-security',
+        '--disable-blink-features=AutomationControlled',
         `--proxy-server=${user.toLowerCase()}-pr.oxylabs.io:${port}`,
         '--no-sandbox',
       ],
       executablePath: await chromium.executablePath,
       headless: chromium.headless,
+      ignoreHTTPSErrors: true,
     });
 
     const page = await browser.newPage();

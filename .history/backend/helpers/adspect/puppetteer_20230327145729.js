@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer-core')
+const puppeteer = require('puppeteer-core');
 const chromium = require('chrome-aws-lambda');
 require('dotenv').config();
 
@@ -6,7 +6,7 @@ let getStreamsWithClick = async (res) => {
   let allObj = [];
   (async () => {
     const browser = await puppeteer.launch({
-      args: chromium.args,
+      args: [chromium.args,
       executablePath: await chromium.executablePath,
       headless: chromium.headless,
     });
