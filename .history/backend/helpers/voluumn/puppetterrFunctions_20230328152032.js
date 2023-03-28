@@ -68,14 +68,14 @@ let doPuppetterTask = async (campaignName, campaigns, res) => {
     const port = Math.floor(
       Math.random() * (ports[user].max - ports[user].min + 1) + ports[user].min,
     );
-    const browser = await chromium.puppeteer.launch({
+    const browser = await chromiumpuppeteer.launch({
       headless: false,
       ignoreHTTPSErrors: true,
       // executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       args: [
-        ...chromium.args,
         '--disable-blink-features=AutomationControlled',
         `--proxy-server=${user.toLowerCase()}-pr.oxylabs.io:${port}`,
+        '--no-sandbox',
       ],
       defaultViewport: null,
     });

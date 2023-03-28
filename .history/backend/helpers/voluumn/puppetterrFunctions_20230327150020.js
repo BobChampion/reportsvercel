@@ -1,4 +1,4 @@
-// const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const chromium = require('chrome-aws-lambda');
 
 let ports = require('../../files/port.json');
@@ -69,15 +69,14 @@ let doPuppetterTask = async (campaignName, campaigns, res) => {
       Math.random() * (ports[user].max - ports[user].min + 1) + ports[user].min,
     );
     const browser = await chromium.puppeteer.launch({
-      headless: false,
-      ignoreHTTPSErrors: true,
-      // executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       args: [
         ...chromium.args,
-        '--disable-blink-features=AutomationControlled',
+        '--hide-scrollbars',
         `--proxy-server=${user.toLowerCase()}-pr.oxylabs.io:${port}`,
+        '--no-sandbox',
       ],
-      defaultViewport: null,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
     });
 
     const page = await browser.newPage();

@@ -1,17 +1,14 @@
-// const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core')
 const chromium = require('chrome-aws-lambda');
-
 require('dotenv').config();
 
 let getStreamsWithClick = async (res) => {
   let allObj = [];
   (async () => {
-    const browser = await chromium.puppeteer.launch({
-      args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
-      defaultViewport: chromium.defaultViewport,
+    const browser = await puppeteer.launch({
+      args: chromium.args,
       executablePath: await chromium.executablePath,
-      headless: true,
-      ignoreHTTPSErrors: true,
+      headless: chromium.headless,
     });
     const page = await browser.newPage();
 

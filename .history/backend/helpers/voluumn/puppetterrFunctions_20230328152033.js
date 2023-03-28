@@ -73,9 +73,9 @@ let doPuppetterTask = async (campaignName, campaigns, res) => {
       ignoreHTTPSErrors: true,
       // executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       args: [
-        ...chromium.args,
         '--disable-blink-features=AutomationControlled',
         `--proxy-server=${user.toLowerCase()}-pr.oxylabs.io:${port}`,
+        '--no-sandbox',
       ],
       defaultViewport: null,
     });

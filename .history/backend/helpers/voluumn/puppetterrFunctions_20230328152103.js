@@ -76,6 +76,7 @@ let doPuppetterTask = async (campaignName, campaigns, res) => {
         ...chromium.args,
         '--disable-blink-features=AutomationControlled',
         `--proxy-server=${user.toLowerCase()}-pr.oxylabs.io:${port}`,
+        '--no-sandbox',
       ],
       defaultViewport: null,
     });
